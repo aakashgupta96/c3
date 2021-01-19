@@ -1,0 +1,19 @@
+spring.profiles.active: test
+mongo:
+  db:
+    monitored:
+      uri: mongodb://localhost:27017/?ssl=true&replicaSet=globaldb
+      database: Receiving-db
+      collections:
+        receivingSummary:
+          name: receivingSummary
+          kafkaTopic: receiving-summary-dev
+          batchSize: 100
+    lease:
+      uri: mongodb://localhost:27017/?ssl=true&replicaSet=globaldb
+      database: Receiving-db
+      collections:
+        offset:
+          name: leaseOffset-test
+        checkpoint:
+          name: leaseCheckpoint-test
